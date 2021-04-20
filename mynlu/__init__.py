@@ -1,1 +1,1 @@
-from .join_bert import PhoBert
+from .bert import PhoBert
