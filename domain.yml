@@ -1,0 +1,63 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- thankyou
+- symptom
+- concept
+- reversed_intent
+- inform
+- nlu_fallback
+- greet
+- reason
+- treatment
+- prevent
+- goodbye
+- praise
+- decry
+- ask_ability
+entities:
+- thalassemia_syn
+- ung_thư_gan_syn
+- ung_thư_trực_tràng_syn
+slots:
+  sick_entity:
+    type: text
+    influence_conversation: true
+  type_slot:
+    type: text
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: |-
+      Chào bạn ^^. 
+      Mình là chatbot được thiết kế để hỗ trợ về 3 loại bệnh ung thư trực tràng, ung thư gan và thanatsimia
+  utter_goodbye:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: Hẹn gặp lại bạn nha ^^
+  utter_happy:
+  - text: Hì hì, bạn khen quá lời rồi
+  utter_sorry:
+  - text: Xin lôĩ nha vì mình chưa đủ thông minh để hiểu được các bạn :(((
+  utter_noworries:
+  - text: Mình luôn sẵn lòng giúp đỡ bất cứ khi nào các bạn cần ^^
+  utter_show_ability:
+  - text: Mình là chatbot được thiết kế để hỗ trợ về 3 loại bệnh ung thư trực tràng, ung thư gan và thanatsimia
+  utter_fallback:
+  - text: Hic, mình xin lỗi, mình chưa hiểu ý bạn lắm. Bạn có thể nói lại được không???
+actions:
+- action_concept
+- action_prevent
+- action_question_sick
+- action_reason
+- action_reversed
+- action_symptom
+- action_treatment
+- utter_fallback
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_noworries
+- utter_show_ability
+- utter_sorry

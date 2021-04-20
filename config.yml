@@ -1,0 +1,35 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+
+pipeline:
+# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # If you'd like to customize it, uncomment and adjust the pipeline.
+# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: 'mynlu.FastTextFeaturizer'
+    path : vinai/phobert-base
+    device: cpu
+  - name: DIETClassifier
+    epochs: 25
+    constrain_similarities: true
+    model_confidence: linear_norm
+  - name: EntitySynonymMapper
+  - name: RegexEntityExtractor
+  - name: ResponseSelector
+    epochs: 100
+    constrain_similarities: true
+ 
+  - name: FallbackClassifier
+    threshold: 0.4
+    ambiguity_threshold: 0.2
+    
+
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+  - name: RulePolicy

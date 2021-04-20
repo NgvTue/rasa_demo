@@ -1,0 +1,157 @@
+version: "2.0"
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+
+- story: sad path 1
+  steps:
+  - intent: goodbye
+  - action: utter_greet
+
+
+- story: sad path 2
+  steps:
+  - intent: thankyou
+  - action: utter_noworries
+
+- story: ask ability
+  steps:
+  - intent: ask_ability
+  - action: utter_show_ability
+
+- story: praise
+  steps:
+  - intent: praise
+  - action: utter_happy
+
+- story: decry
+  steps:
+  - intent: decry
+  - action: utter_sorry
+
+
+
+
+
+- story: concept_story1
+  steps:
+  - intent: concept
+  - action: action_concept
+  - intent: inform
+  - action: action_concept
+
+- story: reason_story_2
+  steps:
+  - intent: reason
+  - action: action_reason
+  - intent: inform
+  - action: action_reason
+
+- story: symptom_story_2
+  steps:
+  - intent: symptom
+  - action: action_symptom
+  - intent: inform
+  - action: action_symptom
+
+- story: prevent_story_2
+  steps:
+  - intent: prevent
+  - action: action_prevent
+  - intent: inform
+  - action: action_prevent
+
+- story: treatment_story_2
+  steps:
+  - intent: treatment
+  - action: action_treatment
+  - intent: inform
+  - action: action_treatment
+
+- story: concept_story1
+  steps:
+  - intent: concept
+  - action: action_concept
+
+
+- story: reason_story_2
+  steps:
+  - intent: reason
+  - action: action_reason
+
+
+- story: symptom_story_2
+  steps:
+  - intent: symptom
+  - action: action_symptom
+
+
+- story: prevent_story_2
+  steps:
+  - intent: prevent
+  - action: action_prevent
+
+
+- story: treatment_story_2
+  steps:
+  - intent: treatment
+  - action: action_treatment
+
+
+- story: reversed_story_1
+  steps:
+  - intent: reversed_intent
+  - action: action_reversed
+
+
+# dung iteractive de sinh ra data
+
+- story: interactive_story_1
+  steps:
+  - intent: concept
+  - action: action_concept
+  - slot_was_set:
+    - type_slot: concept
+  - intent: inform
+    entities:
+    - thalassemia_syn: thalassemia_syn
+  - action: action_concept
+  - slot_was_set:
+    - sick_entity: thalassemia_syn
+  - slot_was_set:
+    - type_slot: concept
+  - intent: symptom
+  - action: action_symptom
+  - slot_was_set:
+    - sick_entity: thalassemia_syn
+  - slot_was_set:
+    - type_slot: symptom
+
+- story: interactive_story_1
+  steps:
+  - intent: concept
+    entities:
+    - thalassemia_syn: thalassemia_syn
+  - action: action_concept
+  - slot_was_set:
+    - sick_entity: thalassemia_syn
+  - slot_was_set:
+    - type_slot: concept
+  - intent: symptom
+  - action: action_symptom
+  - slot_was_set:
+    - sick_entity: thalassemia_syn
+  - slot_was_set:
+    - type_slot: symptom
+  - intent: reversed_intent
+    entities:
+    - ung_thư_gan_syn: ung_thư_gan_syn
+  - action: action_reversed
+  - slot_was_set:
+    - sick_entity: ung_thư_gan_syn
+  - intent: thankyou
+  - action: utter_noworries
