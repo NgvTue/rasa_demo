@@ -1,1 +1,1 @@
-from .join_bert import FastTextFeaturizer
+from .join_bert import PhoBert

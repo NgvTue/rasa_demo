@@ -33,7 +33,7 @@ def load_model(path=None):
     tokenizer = AutoTokenizer.from_pretrained(path, use_fast=False)
     return phobert, tokenizer
 
-class FastTextFeaturizer(DenseFeaturizer):
+class PhoBert(DenseFeaturizer):
     """This component adds Bert features."""
 
     @classmethod

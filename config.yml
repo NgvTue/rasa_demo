@@ -8,7 +8,7 @@ pipeline:
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
-  - name: 'mynlu.FastTextFeaturizer'
+  - name: 'mynlu.PhoBert'
     path : vinai/phobert-base
     device: cpu
   - name: DIETClassifier
